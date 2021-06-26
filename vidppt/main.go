@@ -4,6 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"image"
+	"image/png"
 	"io"
 	"os"
 	"runtime/pprof"
@@ -17,6 +18,7 @@ import (
 type Args struct {
 	Input  string `help:"input video file" arg:"-i"`
 	Output string `help:"output video file" arg:"-o"`
+	Fast   bool   `help:"use no compression, leads to bigger output but faster encoding" arg:"-f"`
 
 	Cpuprof string `help:"cpu benchmark profile"`
 	Memprof string `help:"memory benchmark profile"`
@@ -74,7 +76,11 @@ func main() {
 	io.Copy(outFile, blank)
 
 	// Open as PPTX
-	out, err := pptx.Open(args.Output)
+	compLevel := png.DefaultCompression
+	if args.Fast {
+		compLevel = png.NoCompression
+	}
+	out, err := pptx.Open(args.Output, compLevel)
 	handle(err)
 
 	// Write to file
@@ -98,7 +104,7 @@ func main() {
 		// Add to ppt
 		for _, im := range imgs {
 			// Resize image
-			im = resize.Resize(width, height, im, resize.Bicubic)
+			im = resize.Resize(width, height, im, resize.Bilinear)
 
 			// Save image to PPT
 			s = pptx.Slide{
