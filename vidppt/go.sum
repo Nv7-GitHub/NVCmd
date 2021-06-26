@@ -4,6 +4,12 @@ github.com/Nv7-Github/pptx v0.0.0-20210626075121-94f2b1467513 h1:kikLPQGeXNySvII
 github.com/Nv7-Github/pptx v0.0.0-20210626075121-94f2b1467513/go.mod h1:7RugBcJ2k/cATFF1FZ4c+/4f9a0WxwI8Rx/pLqO6b20=
 github.com/Nv7-Github/vidego v0.0.0-20210626073519-b7c249c7f88c h1:TkszLcH8PZhOc200KsUQEsOxjBCylKpD/uX3P4Eu4wc=
 github.com/Nv7-Github/vidego v0.0.0-20210626073519-b7c249c7f88c/go.mod h1:KwqIxe1cmV+2KBiqfgzedpzGjCRfJKXfSsbUi8elNWM=
+github.com/Nv7-Github/vidego v0.0.0-20210626162920-3c6013e37e62 h1:h6qwPHsJgukBS5++PeaOjL3uF+AdTKigu6dagZNiHCk=
+github.com/Nv7-Github/vidego v0.0.0-20210626162920-3c6013e37e62/go.mod h1:KwqIxe1cmV+2KBiqfgzedpzGjCRfJKXfSsbUi8elNWM=
+github.com/Nv7-Github/vidego v0.0.0-20210626163142-9f878522c14b h1:7idS2KSkM0XDsI/Wu9EC4Z66ZaXyvJwDAYdZnIXPoiI=
+github.com/Nv7-Github/vidego v0.0.0-20210626163142-9f878522c14b/go.mod h1:KwqIxe1cmV+2KBiqfgzedpzGjCRfJKXfSsbUi8elNWM=
+github.com/Nv7-Github/vidego v0.0.0-20210626163257-341a49546e5b h1:JteFOQCU+3vm5Vk8qwXKBY1+d6+WkAol1IosMrBdv8E=
+github.com/Nv7-Github/vidego v0.0.0-20210626163257-341a49546e5b/go.mod h1:KwqIxe1cmV+2KBiqfgzedpzGjCRfJKXfSsbUi8elNWM=
 github.com/alexflint/go-arg v1.4.2 h1:lDWZAXxpAnZUq4qwb86p/3rIJJ2Li81EoMbTMujhVa0=
 github.com/alexflint/go-arg v1.4.2/go.mod h1:9iRbDxne7LcR/GSvEr7ma++GLpdIU1zrghf2y2768kM=
 github.com/alexflint/go-scalar v1.0.0 h1:NGupf1XV/Xb04wXskDFzS0KWOLH632W/EO4fAFi+A70=
