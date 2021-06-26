@@ -13,3 +13,13 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Sample files
+sample*
+
+# Built files
+combi
+gifcli
+main
+concat
+vidppt
