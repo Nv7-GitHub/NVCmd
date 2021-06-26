@@ -6,6 +6,7 @@ import (
 	"image"
 	"io"
 	"os"
+	"runtime/pprof"
 
 	"github.com/Nv7-Github/pptx"
 	"github.com/Nv7-Github/vidego"
@@ -16,6 +17,9 @@ import (
 type Args struct {
 	Input  string `help:"input video file" arg:"-i"`
 	Output string `help:"output video file" arg:"-o"`
+
+	Cpuprof string `help:"cpu benchmark profile"`
+	Memprof string `help:"memory benchmark profile"`
 }
 
 const (
@@ -38,11 +42,19 @@ func main() {
 	var args Args
 	p = arg.MustParse(&args)
 
+	// Profiling
+	if args.Cpuprof != "" {
+		cpufile, err := os.Create(args.Cpuprof)
+		handle(err)
+		err = pprof.StartCPUProfile(cpufile)
+		handle(err)
+		defer pprof.StopCPUProfile()
+	}
+
 	// Check if file exists
 	_, err := os.Stat(args.Input)
 	if os.IsNotExist(err) {
-		fmt.Println(args.Input)
-		handle(fmt.Errorf("error: file does not exist"))
+		handle(fmt.Errorf("file does not exist"))
 	}
 
 	// Open video
@@ -110,6 +122,14 @@ func main() {
 
 	err = bar.Finish()
 	handle(err)
+
+	// Memprof
+	if args.Memprof != "" {
+		memprof, err := os.Create(args.Memprof)
+		handle(err)
+		err = pprof.WriteHeapProfile(memprof)
+		handle(err)
+	}
 
 	fmt.Println("Saving...")
 	err = out.Close()
